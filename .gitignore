@@ -23,3 +23,10 @@ yii
 yii.bat
 yii2.bat
 web/
+vendor/*
+vagrant/*
+vendor/
+vagrant/
+.git_1/
+.gitignore
+.config/db.php
