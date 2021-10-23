@@ -60,7 +60,7 @@ class SquadController extends Controller {
     }
 
     public function actionExport($id) {
-        //ПРОВЕРКА//
+        //!!//
         /////////////////////////ADMIN/////////////////////////////////////////////////
         if (Yii::$app->user->can('admin')) {
 
