@@ -1,0 +1,24 @@
+Options +FollowSymLinks
+IndexIgnore */*
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{REQUEST_URI} !^/(web)
+
+RewriteRule ^admin/login/(.*)$ site/login/$1 [L]
+RewriteRule ^img/(.*)$ /web/img/$1 [L]
+RewriteRule ^logo/(.*)$ /web/logo/$1 [L]
+RewriteRule ^vendor/(.*)$ /web/vendor/$1 [L]
+RewriteRule ^assets/(.*)$ /web/assets/$1 [L]
+RewriteRule ^slideshow/(.*)$ /web/assets/slideshow/$1 [L]
+RewriteRule ^css/(.*)$ web/css/$1 [L]
+RewriteRule ^js/(.*)$ web/js/$1 [L]
+RewriteRule ^images/(.*)$ web/images/$1 [L]
+RewriteRule ^blog/(.*)$ web/blog/$1 [L]
+RewriteRule ^uploads/(.*)$ web/uploads/$1 [L]
+RewriteRule (.*) /web/$1
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /web/index.php
